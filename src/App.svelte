@@ -28,6 +28,8 @@
 
       <div class="submit">
         <Button
+          disabled={isSubmitting}
+          aria-disabled={isSubmitting.toString()}
           class="button"
           variant="raised"
           type="submit"
@@ -45,8 +47,16 @@
   import HelperText from '@smui/textfield/helper-text/index';
   import { login } from './login.store.js';
 
+  let isSubmitting = false;
+
   function submit() {
-    alert(JSON.stringify($login));
+    isSubmitting = true;
+    // alert(JSON.stringify($login));
+    console.log(JSON.stringify($login));
+
+    setTimeout(() => {
+      isSubmitting = false;
+    }, 2000);
   }
 </script>
 
